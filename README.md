@@ -12,8 +12,5 @@ Install necessary module
 npm install
 ```
 
-Clone next theme into repo as submodule 
-
-```shell
-git submodule submodule add git@github.com:next-theme/hexo-theme-next.git
-```
+Clone next theme into repo as submodule
+using `next` now
