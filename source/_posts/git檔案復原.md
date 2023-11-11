@@ -1,7 +1,8 @@
 ---
 title: git檔案復原
 date: 2023-11-11 22:47:58
-tags: git
+categories: Git
+tags: Git
 ---
 
 在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用`switch`來替代，而檔案的還原也能夠用`restore`來處理。
