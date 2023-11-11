@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">1</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">1</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">2</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">1</span></a></li>
   </ul>
 </nav>
 
@@ -121,7 +121,7 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
@@ -132,7 +132,7 @@
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -154,6 +154,89 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://b22790188.github.io/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Guo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guo's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Guo's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/" class="post-title-link" itemprop="url">git檔案復原</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2023-11-11 22:47:58 / 修改時間：22:54:44" itemprop="dateCreated datePublished" datetime="2023-11-11T22:47:58+08:00">2023-11-11</time>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用<code>switch</code>來替代，而檔案的還原也能夠用<code>restore</code>來處理。</p>
+<p>當一個檔案被追蹤且未修改時，會處於<code>Unmodified</code>的狀態，這時當對該檔案進行編輯的時候，因為檔案被修改了，所以檔案狀態理所當然的會變成<code>Modified</code>的狀態。但在我們利用<code>git add</code>將這個修改的檔案加入暫存區(stage)前，這個檔案的變更紀錄目前只存在於工作目錄(worktree)，這時若是想要還原這個變更的話，就可以利用以下指令。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --worktree &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>在使用<code>restore</code>指令時，他預設的模式會是還原worktree中的檔案或資料夾。也就是說，以下指令其實跟上面指令具有相同的作用</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>那如果今天檔案已經被加入到暫存區中變成stage的狀態了呢?只要在使用restore時，加上<code>--stage</code>的參數，就可以對暫存區的內容進行還原!</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --stage &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>假設今天在worktree剛修改完，又對於stage中的部分檔案內容不滿意想要進行修改的話。可以使用以下指令</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --worktree &lt;filename&gt; --stage &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+
+<p>藉由兩個參數<code>worktree</code>、<code>stage</code>，來達成還原。</p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
