@@ -28,7 +28,7 @@
 <meta property="og:description" content="在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用switch來替代，而檔案的還原也能夠用restore來處理。 當一個檔案被追蹤且未修改時，會處於Unmodified的狀態，這時當對該檔案進行編輯的時候，因為檔案被修改了，所以檔案狀態理所當然的會變成Modified的狀態。但在我們利用git add將這個修改的檔案加入">
 <meta property="og:locale" content="zh_TW">
 <meta property="article:published_time" content="2023-11-11T14:47:58.000Z">
-<meta property="article:modified_time" content="2023-11-11T15:06:59.335Z">
+<meta property="article:modified_time" content="2023-11-15T02:59:29.543Z">
 <meta property="article:author" content="Guo">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
@@ -196,9 +196,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
-      
 
-      <time title="創建時間：2023-11-11 22:47:58 / 修改時間：23:06:59" itemprop="dateCreated datePublished" datetime="2023-11-11T22:47:58+08:00">2023-11-11</time>
+      <time title="創建時間：2023-11-11 22:47:58" itemprop="dateCreated datePublished" datetime="2023-11-11T22:47:58+08:00">2023-11-11</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">更新於</span>
+      <time title="修改時間：2023-11-15 10:59:29" itemprop="dateModified" datetime="2023-11-15T10:59:29+08:00">2023-11-15</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -226,7 +232,7 @@
 <p>在使用<code>restore</code>指令時，他預設的模式會是還原worktree中的檔案或資料夾。也就是說，以下指令其實跟上面指令具有相同的作用</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 
-<p>那如果今天檔案已經被加入到暫存區中變成stage的狀態了呢?只要在使用restore時，加上<code>--stage</code>的參數，就可以對暫存區的內容進行還原!</p>
+<p>那如果今天檔案已經被加入到暫存區中變成stage的狀態了呢?只要在使用restore時，加上<code>--stage</code>的參數，就可以對暫存區的內容進行還原，會將狀態從<code>staged</code>還原成在<code>worktree</code>狀態中。</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --stage &lt;filename&gt;</span><br></pre></td></tr></table></figure>
 
 <p>假設今天在worktree剛修改完，又對於stage中的部分檔案內容不滿意想要進行修改的話。可以使用以下指令</p>
