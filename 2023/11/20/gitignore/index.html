@@ -20,28 +20,28 @@
 
 <script class="next-config" data-name="main" type="application/json">{"hostname":"b22790188.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.18.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
 
-    <meta name="description" content="在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用switch來替代，而檔案的還原也能夠用restore來處理。 當一個檔案被追蹤且未修改時，會處於Unmodified的狀態，這時當對該檔案進行編輯的時候，因為檔案被修改了，所以檔案狀態理所當然的會變成Modified的狀態。但在我們利用git add將這個修改的檔案加入">
+    <meta name="description" content=".gitignore在使用git時，專案中可能會存在一些敏感資訊是我們不想被推到github上的，像是伺服器IP位置、資料庫密碼等等。這時候就可以藉由.gitignore檔案來忽略這些敏感文件。 在local repository中新增.gitignore檔案，在windows中可藉由git bash輸入以下指令達成。 1touch .gitignore  再用vim修改內容 1234567# .">
 <meta property="og:type" content="article">
-<meta property="og:title" content="git檔案復原">
-<meta property="og:url" content="https://b22790188.github.io/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/index.html">
+<meta property="og:title" content=".gitignore">
+<meta property="og:url" content="https://b22790188.github.io/2023/11/20/gitignore/index.html">
 <meta property="og:site_name" content="Guo&#39;s Blog">
-<meta property="og:description" content="在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用switch來替代，而檔案的還原也能夠用restore來處理。 當一個檔案被追蹤且未修改時，會處於Unmodified的狀態，這時當對該檔案進行編輯的時候，因為檔案被修改了，所以檔案狀態理所當然的會變成Modified的狀態。但在我們利用git add將這個修改的檔案加入">
+<meta property="og:description" content=".gitignore在使用git時，專案中可能會存在一些敏感資訊是我們不想被推到github上的，像是伺服器IP位置、資料庫密碼等等。這時候就可以藉由.gitignore檔案來忽略這些敏感文件。 在local repository中新增.gitignore檔案，在windows中可藉由git bash輸入以下指令達成。 1touch .gitignore  再用vim修改內容 1234567# .">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2023-11-11T14:47:58.000Z">
-<meta property="article:modified_time" content="2023-11-15T02:59:29.543Z">
+<meta property="article:published_time" content="2023-11-20T15:37:28.000Z">
+<meta property="article:modified_time" content="2023-11-20T15:42:27.385Z">
 <meta property="article:author" content="Guo">
 <meta property="article:tag" content="Git">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://b22790188.github.io/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/">
+<link rel="canonical" href="https://b22790188.github.io/2023/11/20/gitignore/">
 
 
 
-<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://b22790188.github.io/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/","path":"2023/11/11/git檔案復原/","title":"git檔案復原"}</script>
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"https://b22790188.github.io/2023/11/20/gitignore/","path":"2023/11/20/gitignore/","title":".gitignore"}</script>
 
 <script class="next-config" data-name="calendar" type="application/json">""</script>
-<title>git檔案復原 | Guo's Blog</title>
+<title>.gitignore | Guo's Blog</title>
   
 
 
@@ -100,7 +100,7 @@
   
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目錄
@@ -113,6 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#gitignore"><span class="nav-number">1.</span> <span class="nav-text">.gitignore</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B0%88%E6%A1%88%E9%80%B2%E8%A1%8C%E5%88%B0%E4%B8%80%E5%8D%8A%E6%89%8D%E5%8A%A0%E5%85%A5-gitignore"><span class="nav-number">1.1.</span> <span class="nav-text">專案進行到一半才加入.gitignore?</span></a></li></ol></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -168,7 +169,7 @@
   
 
   <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
-    <link itemprop="mainEntityOfPage" href="https://b22790188.github.io/2023/11/11/git%E6%AA%94%E6%A1%88%E5%BE%A9%E5%8E%9F/">
+    <link itemprop="mainEntityOfPage" href="https://b22790188.github.io/2023/11/20/gitignore/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -181,12 +182,12 @@
     </span>
 
     <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
-      <meta itemprop="name" content="git檔案復原 | Guo's Blog">
+      <meta itemprop="name" content=".gitignore | Guo's Blog">
       <meta itemprop="description" content="">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          git檔案復原
+          .gitignore
         </h1>
 
         <div class="post-meta-container">
@@ -196,24 +197,9 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">發表於</span>
+      
 
-      <time title="創建時間：2023-11-11 22:47:58" itemprop="dateCreated datePublished" datetime="2023-11-11T22:47:58+08:00">2023-11-11</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar-check"></i>
-      </span>
-      <span class="post-meta-item-text">更新於</span>
-      <time title="修改時間：2023-11-15 10:59:29" itemprop="dateModified" datetime="2023-11-15T10:59:29+08:00">2023-11-15</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分類於</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Git/" itemprop="url" rel="index"><span itemprop="name">Git</span></a>
-        </span>
+      <time title="創建時間：2023-11-20 23:37:28 / 修改時間：23:42:27" itemprop="dateCreated datePublished" datetime="2023-11-20T23:37:28+08:00">2023-11-20</time>
     </span>
 
   
@@ -225,20 +211,28 @@
     
     
     
-    <div class="post-body" itemprop="articleBody"><p>在過去的git版本，checkout除了能夠用來切換分支之外，也能夠進行檔案的還原。而後續為了避免指令的混淆，分支的切換可以利用<code>switch</code>來替代，而檔案的還原也能夠用<code>restore</code>來處理。</p>
-<p>當一個檔案被追蹤且未修改時，會處於<code>Unmodified</code>的狀態，這時當對該檔案進行編輯的時候，因為檔案被修改了，所以檔案狀態理所當然的會變成<code>Modified</code>的狀態。但在我們利用<code>git add</code>將這個修改的檔案加入暫存區(stage)前，這個檔案的變更紀錄目前只存在於工作目錄(worktree)，這時若是想要還原這個變更的話，就可以利用以下指令。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --worktree &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+    <div class="post-body" itemprop="articleBody"><h2 id="gitignore"><a href="#gitignore" class="headerlink" title=".gitignore"></a>.gitignore</h2><p>在使用git時，專案中可能會存在一些敏感資訊是我們不想被推到github上的，像是伺服器IP位置、資料庫密碼等等。這時候就可以藉由.gitignore檔案來忽略這些敏感文件。</p>
+<p>在local repository中新增<code>.gitignore檔案</code>，在windows中可藉由git bash輸入以下指令達成。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">touch</span> .gitignore</span><br></pre></td></tr></table></figure>
 
-<p>在使用<code>restore</code>指令時，他預設的模式會是還原worktree中的檔案或資料夾。也就是說，以下指令其實跟上面指令具有相同的作用</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore &lt;filename&gt;</span><br></pre></td></tr></table></figure>
+<p>再用vim修改內容</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># .gitignorefile</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># the file you want to ignore</span></span><br><span class="line">secret.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># the directory you want to ignore</span></span><br><span class="line">secret/</span><br></pre></td></tr></table></figure>
 
-<p>那如果今天檔案已經被加入到暫存區中變成stage的狀態了呢?只要在使用restore時，加上<code>--stage</code>的參數，就可以對暫存區的內容進行還原，會將狀態從<code>staged</code>還原成在<code>worktree</code>狀態中。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --stage &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<p>假設今天在worktree剛修改完，又對於stage中的部分檔案內容不滿意想要進行修改的話。可以使用以下指令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git restore --worktree &lt;filename&gt; --stage &lt;filename&gt;</span><br></pre></td></tr></table></figure>
-
-<p>藉由兩個參數<code>worktree</code>、<code>stage</code>，來達成還原。</p>
+<h3 id="專案進行到一半才加入-gitignore"><a href="#專案進行到一半才加入-gitignore" class="headerlink" title="專案進行到一半才加入.gitignore?"></a>專案進行到一半才加入.gitignore?</h3><p>如果在中途才加入.gitignore檔案，雖然在之後的push中，特定檔案都會被ignore，但先前push上去的檔案依舊會存在。</p>
+<ol>
+<li><p>可以先利用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git ls-tree --name-only --full-tree -r HEAD</span><br></pre></td></tr></table></figure>
+<p>查看哪些檔案已經被git追蹤。</p>
+</li>
+<li><p>將所有檔案移除追蹤</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git rm -r --cached .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>利用add來更新狀態，在這次的add中，因為.gitignore規則的緣故，特定檔案就不會被追蹤到cache中</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>更新commit ，push到遠端。如此一來，遠端repository中的特定檔案就會因此被移除了</p>
+</li>
+</ol>
 
     </div>
 
@@ -255,11 +249,11 @@
 
           <div class="post-nav">
             <div class="post-nav-item">
+                <a href="/2023/11/20/GCP%E8%A8%AD%E5%AE%9ASSH%E5%85%8D%E5%AF%86%E7%A2%BC%E7%99%BB%E5%85%A5/" rel="prev" title="GCP設定SSH免密碼登入">
+                  <i class="fa fa-angle-left"></i> GCP設定SSH免密碼登入
+                </a>
             </div>
             <div class="post-nav-item">
-                <a href="/2023/11/20/What-is-ACID-principle/" rel="next" title="What is ACID principle">
-                  What is ACID principle <i class="fa fa-angle-right"></i>
-                </a>
             </div>
           </div>
     </footer>
