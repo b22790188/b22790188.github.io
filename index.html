@@ -84,7 +84,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">3</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">3</span></a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤<span class="badge">4</span></a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類<span class="badge">4</span></a></li>
   </ul>
 </nav>
 
@@ -121,18 +121,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">文章</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">分類</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">標籤</span></a>
       </div>
   </nav>
@@ -154,6 +154,96 @@
     </div>
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://b22790188.github.io/2023/11/22/MongoDB%E5%AE%89%E8%A3%9D/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Guo">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Guo's Blog">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="undefined | Guo's Blog">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/2023/11/22/MongoDB%E5%AE%89%E8%A3%9D/" class="post-title-link" itemprop="url">MongoDB安裝</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+
+      <time title="創建時間：2023-11-22 21:51:06" itemprop="dateCreated datePublished" datetime="2023-11-22T21:51:06+08:00">2023-11-22</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分類於</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/NoSQL/" itemprop="url" rel="index"><span itemprop="name">NoSQL</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <ol>
+<li>官網下載mongodb</li>
+<li>創建一個要作為資料庫的資料夾，</li>
+<li>(windows)到<code>Program file</code>下找Mongdb……&#x2F;…..&#x2F;bin 資料夾，往後可以從這裡直接指定，也可以至環境變數設定，讓mongod指令可以直接被使用</li>
+<li>若是想要透過指令操作mongodb，可以下載mongosh(不一定必要)。</li>
+<li>若是想要透過圖形化介面，可以在最初安裝mongodb時，連mongo compass一起安裝。</li>
+</ol>
+<h3 id="啟動-Server"><a href="#啟動-Server" class="headerlink" title="啟動 Server"></a>啟動 Server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mongod --dbpath=<span class="string">&quot;your path name&quot;</span> --port=<span class="string">&quot;port you want to use&quot;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>參考:<br><a target="_blank" rel="noopener" href="https://www.mongodb.com/community/forums/t/mongo-mongodb-command-not-working-and-environment-variable-path-is-also-set/186599">Mongo&#x2F;mongodb command not working and environment variable path is also set - Other MongoDB Topics - MongoDB Developer Community Forums</a></p>
+<p><a target="_blank" rel="noopener" href="https://hevodata.com/learn/windows-mongodb-shell/">Windows MongoDB Shell Installation: 3 Easy Steps | Hevo (hevodata.com)</a></p>
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
