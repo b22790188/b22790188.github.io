@@ -1,6 +1,9 @@
 ---
 title: MongoDB安裝
-tags: Database、NoSQL、MongoDB
+tags: 
+- Database
+- NoSQL
+- MongoDB
 categories: NoSQL
 date: 2023-11-22 21:51:06
 ---
